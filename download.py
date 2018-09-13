@@ -38,4 +38,5 @@ def saveAnimal(animal_name, photo_num):
 
 if __name__ == '__main__':
    for animal_name in animal_names:
-#    for
+#    for animal_name in sys.argv:
+        saveAnimal(animal_name, photo_num)

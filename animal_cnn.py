@@ -79,8 +79,10 @@ def model_train(X, Y, epoch=30, index=0):
 # 25 epoch -> 75%
 # 50 epoch -> 79% ... 
     model.fit(X, Y, batch_size=32, epochs=epoch) 
-# save model
-    model.save('./CNNLossAcc/animal_cnn' + str(epoch) + '_' + str(index) + '.h5')
+
+# モデルがあまりに大きかったため、一つだけ保存する。
+    if index == 0:
+        model.save('./CNNLossAcc/animal_cnn' + str(epoch) + '.h5')
 
 # evaluation 
     return model
