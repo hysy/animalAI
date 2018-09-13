@@ -3,7 +3,11 @@
 
 <br />
 
-要約すると、アップロードした画像を、CNNで学習した分類機で分類します。
+## Abstract
+画像をKerasのCNNで学習した分類機で分類します。
+
+学習モデルは、[Keras](https://keras.io/getting-started/sequential-model-guide/) の [Example](https://github.com/keras-team/keras/tree/master/examples) の一番シンプルなCNN [cifar10_cnn.py](https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py) を使用しました
+
 
 学習データは、flickrからクローリングしたイノシシ（boar）、猿（monkey）、カラス（crow）のみです。
 
@@ -11,7 +15,8 @@
 
 <br />
 
-今回は精度向上も実装しました。
+## Accuracy Improvement
+今回は精度向上も実装しました。（向上できなかった）
 
 パラメータの調整などは行わず、画像データを増やしてみました。
 
@@ -21,7 +26,17 @@
 
 <br />
 
+## Classifier Type
+分類器は大きく分けて、通常版と増幅版（↑参照）の2種類を作成しました。
+
+また、↑のそれぞれの分類器に対して、[epoch数](http://st-hakky.hatenablog.com/entry/2017/01/17/165137) (=1つの訓練データを何回繰り返して学習させるか)を `1, 20, 50, 100` と変化させ、8種類の分類器を作成しました。
+
+分類機は1つ300MBぐらいになったので、精度の良かった4つの分類器（epoch = `50, 100`）のみ残っています。
+
+<br />
+
 参考: [Udemy](https://www.udemy.com/tensorflow-advanced/)
+
 # Environment
 
 | Equipment | Name |
@@ -61,12 +76,15 @@
   - [monkey](https://github.com/hysy/animalAI/tree/master/monkey)
   - [crow](https://github.com/hysy/animalAI/tree/master/crow)
 
-- CNNのCPU実行まで実装した。
+- 通常版CNNのCPU実行まで実装した。
   - [AnimalAI/CNNLossAcc](https://github.com/hysy/animalAI/tree/master/CNNLossAcc) を参照。
 
 ## 2018-09-13
 - 画像の回転・反転により、学習データを増やし、学習
+- 増幅版CNNのCPU実行まで実装・実行した。
+  - [AnimalAI/CNNLossAcc_aug](https://github.com/hysy/animalAI/tree/master/CNNLossAcc_aug) を参照。
 - Webアプリの形まで作成
+  - Usageを参照
 - とりあえず、コース分は完成。
 
 
