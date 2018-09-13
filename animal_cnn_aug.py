@@ -84,7 +84,7 @@ def model_train(X, Y, epoch=30, index=0):
 # save model
 # モデルがあまりに大きかったため、一つだけ保存する。
     if index == 0:
-        model.save('./CNNLossAcc/animal_cnn_aug' + str(epoch) + '.h5')
+        model.save('./CNNLossAcc_aug/animal_cnn_aug' + str(epoch) + '.h5')
 
 # evaluation 
     return model
