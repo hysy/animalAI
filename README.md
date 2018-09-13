@@ -17,6 +17,8 @@
 
 画像データの一部を回転、反転させることで1枚が16枚分になっています。
 
+![image](https://github.com/hysy/animalAI/blob/master/_etc/%E5%8F%8D%E8%BB%A2.PNG)
+
 <br />
 
 参考: [Udemy](https://www.udemy.com/tensorflow-advanced/)
@@ -63,11 +65,13 @@
   - [AnimalAI/CNNLossAcc](https://github.com/hysy/animalAI/tree/master/CNNLossAcc) を参照。
 
 ## 2018-09-13
-- 画像の回転・反転により、学習データを増やし、学習中（終わった）
+- 画像の回転・反転により、学習データを増やし、学習
+- Webアプリの形まで作成
 - とりあえず、コース分は完成。
 
+
 # Result
-CPU実行なので、とりあえず前日（2018-09-12）につけておいた（画像複製なし、epoch=100）でやってみました。
+CPU実行なので、とりあえず前日（2018-09-12）に漬けておいた（画像複製なし、epoch=100）でやってみました。
 
 ## Correct Example
 
