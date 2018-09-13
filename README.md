@@ -84,7 +84,7 @@
 - 増幅版CNNのCPU実行まで実装・実行した。
   - [AnimalAI/CNNLossAcc_aug](https://github.com/hysy/animalAI/tree/master/CNNLossAcc_aug) を参照。
 - Webアプリの形まで作成
-  - Usageを参照
+  - [Usage](https://github.com/hysy/animalAI#usage)を参照
 - とりあえず、コース分は完成。
 
 
