@@ -23,7 +23,9 @@ def main():
 
     for epoch in [1, 20, 50, 100]:
         Loss = Acc = 0.0 
-        num = 5 # Num of Executions
+        # 流石に大きいので一回だけにした
+        num = 1 # Num of Executions 
+
         for index in range(num):
             model = model_train(X_train, Y_train, epoch, index)
             loss, acc = model_eval(model, X_test, Y_test)
