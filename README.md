@@ -60,7 +60,7 @@
 
 
 # Usage
-自分はAnacondaで仮想環境を作って動かしました。
+自分は[Anaconda](https://www.anaconda.com/)で仮想環境を作って動かしました。
 
 - 環境設定
   - `tensorflow`や`pillow`、`keras`や`flask`、`numpy`、`sklearn`を順次`pip install `します。
