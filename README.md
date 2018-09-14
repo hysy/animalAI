@@ -31,7 +31,7 @@
 
 また、↑のそれぞれの分類器に対して、[epoch数](http://st-hakky.hatenablog.com/entry/2017/01/17/165137) (=1つの訓練データを何回繰り返して学習させるか)を `1, 20, 50, 100` と変化させ、8種類の分類器を作成しました。
 
-分類機は1つ300MBぐらいになったので、精度の良かった4つの分類器（epoch = `50, 100`）のみ残っています。
+分類機は1つ300MBぐらいになったので、精度の良かった4つの分類器（epoch数が`50, 100`）のみ残っています。
 
 <br />
 
@@ -70,7 +70,7 @@
     
 # Progress
 ## 2018-09-12 まで
-- クローリングから、前処理を済ませた。
+- クローリングから、前処理まで
   - [前処理メモ](https://github.com/hysy/animalAI/blob/master/_etc/%E5%89%8D%E5%87%A6%E7%90%86%E3%83%A1%E3%83%A2.txt)
   - [boar](https://github.com/hysy/animalAI/tree/master/boar)
   - [monkey](https://github.com/hysy/animalAI/tree/master/monkey)
@@ -81,11 +81,11 @@
 
 ## 2018-09-13
 - 画像の回転・反転により、学習データを増やし、学習
-- 増幅版CNNのCPU実行まで実装・実行した。
-  - [AnimalAI/CNNLossAcc_aug](https://github.com/hysy/animalAI/tree/master/CNNLossAcc_aug) を参照。
+- 増幅版CNNのCPU実行まで実装・実行
+  - [AnimalAI/CNNLossAcc_aug](https://github.com/hysy/animalAI/tree/master/CNNLossAcc_aug) を参照
 - Webアプリの形まで作成
   - [Usage](https://github.com/hysy/animalAI#usage)を参照
-- とりあえず、コース分は完成。
+- とりあえず、コース分は完成
 
 
 # Result
