@@ -9,14 +9,14 @@
 学習モデルは、[Keras](https://keras.io/getting-started/sequential-model-guide/) の [Example](https://github.com/keras-team/keras/tree/master/examples) の一番シンプルなCNN [cifar10_cnn.py](https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py) を使用しました
 
 
-学習データは、flickrからクローリングしたイノシシ（boar）、猿（monkey）、カラス（crow）のみです。
+学習データは、[flickr](https://www.flickr.com/)からクローリングしたイノシシ（[boar](https://github.com/hysy/animalAI/tree/master/boar)）、猿（[monkey](https://github.com/hysy/animalAI/tree/master/monkey)）、カラス（[crow](https://github.com/hysy/animalAI/tree/master/crow)）のみです。
 
 関係ない画像をアップロードすると一番近い動物が出力されます。
 
 <br />
 
 ## Accuracy Improvement
-今回は精度向上も実装しました。（向上できなかった）
+今回は精度向上も実装しました。（向上しなかった）
 
 パラメータの調整などは行わず、画像データを増やしてみました。
 
@@ -24,14 +24,27 @@
 
 ![image](https://github.com/hysy/animalAI/blob/master/_etc/%E5%8F%8D%E8%BB%A2.PNG)
 
+
 <br />
 
 ## Classifier Type
 分類器は大きく分けて、通常版と増幅版（↑参照）の2種類を作成しました。
 
-また、↑のそれぞれの分類器に対して、[epoch数](http://st-hakky.hatenablog.com/entry/2017/01/17/165137) (=1つの訓練データを何回繰り返して学習させるか)を `1, 20, 50, 100` と変化させ、8種類の分類器を作成しました。
+また、↑のそれぞれの分類器に対して、[Epoch数](http://st-hakky.hatenablog.com/entry/2017/01/17/165137) (=1つの訓練データを何回繰り返して学習させるか)を `1, 20, 50, 100` と変化させ、8種類の分類器を作成しました。
+
+[cifar10_cnn.py](https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py) の1~5行目のコメントを見ると、`Epoch数が 50 のとき、最適でないにしろ良い精度が出る`事がわかります。
 
 分類機は1つ300MBぐらいになったので、精度の良かった4つの分類器（epoch数が`50, 100`）のみ残っています。
+
+
+| Epoch | 通常版 | 増量版 |
+|:-:|:-:|:-:|
+| 1 | 0.4116 | 0.4166 |
+| 20 | 0.6598 | 0.6600 |
+| 50 | 0.7109 | 0.6866 |
+| 100 | 0.6583 | 0.6833 |
+
+デフォルトでは Epoch数100、通常版で分類します。（深い意味はないです。）
 
 <br />
 
@@ -66,27 +79,7 @@
     - 通常版: `CNNLossAcc/animal_cnn[epoch数].h5`
     - 増量版: `CNNLossAcc_aug/animal_cnn_aug[epoch数].h5`
       - 増量版の学習データは、画像データの一部を回転、反転させることで1枚が16枚分になっています。
-      - ちなみに、増量版のほうが精度が悪かったです。
-    
-# Progress
-## 2018-09-12 まで
-- クローリングから、前処理まで
-  - [前処理メモ](https://github.com/hysy/animalAI/blob/master/_etc/%E5%89%8D%E5%87%A6%E7%90%86%E3%83%A1%E3%83%A2.txt)
-  - [boar](https://github.com/hysy/animalAI/tree/master/boar)
-  - [monkey](https://github.com/hysy/animalAI/tree/master/monkey)
-  - [crow](https://github.com/hysy/animalAI/tree/master/crow)
-
-- 通常版CNNのCPU実行まで実装した。
-  - [AnimalAI/CNNLossAcc](https://github.com/hysy/animalAI/tree/master/CNNLossAcc) を参照。
-
-## 2018-09-13
-- 画像の回転・反転により、学習データを増やし、学習
-- 増幅版CNNのCPU実行まで実装・実行
-  - [AnimalAI/CNNLossAcc_aug](https://github.com/hysy/animalAI/tree/master/CNNLossAcc_aug) を参照
-- Webアプリの形まで作成
-  - [Usage](https://github.com/hysy/animalAI#usage)を参照
-- とりあえず、コース分は完成
-
+      - 精度はあまり変わりませんでした。
 
 # Result
 CPU実行なので、とりあえず前日（2018-09-12）に漬けておいた（画像複製なし、epoch=100）でやってみました。
@@ -116,6 +109,26 @@ CPU実行なので、とりあえず前日（2018-09-12）に漬けておいた�
 # Prospects
 上の考察から、どの位置から見ても同じような面が多く、特徴的な形をした立体（リンゴ、いちご、パイナップルなどの果物（加工前））などは高精度を出せると思う。
 またやります。
+
+
+# Progress
+## 2018-09-12 まで
+- クローリングから、前処理まで
+  - [前処理メモ](https://github.com/hysy/animalAI/blob/master/_etc/%E5%89%8D%E5%87%A6%E7%90%86%E3%83%A1%E3%83%A2.txt)
+  - [boar](https://github.com/hysy/animalAI/tree/master/boar)
+  - [monkey](https://github.com/hysy/animalAI/tree/master/monkey)
+  - [crow](https://github.com/hysy/animalAI/tree/master/crow)
+
+- 通常版CNNのCPU実行まで実装・実行
+  - [AnimalAI/CNNLossAcc](https://github.com/hysy/animalAI/tree/master/CNNLossAcc) 
+
+## 2018-09-13
+- 画像の回転・反転により、学習データを増やし、学習
+- 増幅版CNNのCPU実行まで実装・実行
+  - [AnimalAI/CNNLossAcc_aug](https://github.com/hysy/animalAI/tree/master/CNNLossAcc_aug) 
+- Webアプリの形まで作成
+  - [Usage](https://github.com/hysy/animalAI#usage)
+- とりあえず、コース分は完成
 
 
 # おまけ
